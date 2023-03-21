@@ -1,0 +1,26 @@
+import React, { useState } from 'react';
+import "./Login.scss";
+import Register from './Register';
+
+const Login = () => {
+const [openregister, setOpenregister] = useState(false)
+
+    return (
+        <>
+        {!openregister && <div className='login'>
+            <h3>Sign In</h3>
+            <div className='inputs'>
+                <input type="email" className="form-control" id="exampleFormControlInput1" placeholder='Enter Your Email ID' /><br />
+                <input type='password' className="form-control" placeholder='Password' /><br />
+                <button className='btn'>Sign In</button>
+            </div>
+            <div className='text'>
+                <div><span>New to Netflix? </span><span onClick={()=>setOpenregister(true)}>Sign Up now.</span></div>
+            </div>
+        </div>}
+        {openregister && <Register/>}
+        </>
+    )
+}
+
+export default Login;
